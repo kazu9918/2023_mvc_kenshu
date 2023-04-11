@@ -1,14 +1,32 @@
-<p id="notice"><%= notice %></p>
+<body class="comic-show">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @comic.title %>
-</p>
+  <h1>マンガ詳細</h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @comic.content %>
-</p>
+  <div class="btn-container">
+    <%= link_to 'ホーム', comics_path, class: 'btn btn-home' %>
+    <%= link_to 'オススメ', high_rated_comics_path, class: 'btn btn-high-rated' %>
+    <%= link_to '少年・青年', boy_comics_path, class: 'btn btn-boy' %>
+    <%= link_to '少女・女性', girl_comics_path, class: 'btn btn-girl' %>
+  </div>
 
-<%= link_to 'Edit', edit_comic_path(@comic) %> |
-<%= link_to 'Back', comics_path %>
+  <div class="comic-info">
+    <h2><%= @comic.title %></h2>
+
+    <table>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>評価</th>
+      </tr>
+      <tr>
+        <td><%= @comic.title %></td>
+        <td><%= @comic.content %></td>
+        <td><%= @comic.rating %></td>
+      </tr>
+    </table>
+  </div>
+
+  <%= link_to '編集', edit_comic_path(@comic), class: 'btn btn-edit' %>
+  <%= link_to '削除', @comic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destory' %>
+</body>

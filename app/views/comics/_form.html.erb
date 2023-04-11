@@ -12,16 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :内容 %>
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= form.label :カテゴリー %>
+    <%= form.select :category, options_for_select([['少年・青年', 'boy'], ['少女・女性', 'girl']]), prompt: 'カテゴリーを選択してください' %>
+  </div>
+
+  <div class="field rating">
+    <div class="rating-label">評価</div>
+      <div class="rating">
+        <label><%= form.radio_button :rating, 1 %>1</label>
+        <label><%= form.radio_button :rating, 2 %>2</label>
+        <label><%= form.radio_button :rating, 3 %>3</label>
+        <label><%= form.radio_button :rating, 4 %>4</label>
+        <label><%= form.radio_button :rating, 5 %>5</label>
+      </div>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '保存' %>
   </div>
 <% end %>

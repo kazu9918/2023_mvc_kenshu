@@ -2,7 +2,7 @@
   <%= form_with(model: @comic) do |form| %>
     <p id="notice"><%= notice %></p>
 
-    <h1>ホーム</h1>
+    <h1>オススメ</h1>
 
     <div class="btn-container">
       <%= link_to 'ホーム', comics_path, class: 'btn btn-home' %>
@@ -25,14 +25,10 @@
           <tr>
             <td><%= comic.title %></td>
             <td><%= comic.content %></td>
-            <td><%= link_to '詳細', comic %></td>
+            <td><%= link_to '詳細', comic_path(comic) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-
-    <br>
-
-    <%= link_to '新規登録', new_comic_path, class: 'btn btn-add' %>
   <% end %>
 </div>
