@@ -19,38 +19,6 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
   end
 
-  # POST /comics
-  def create
-    @comic = Comic.new(comic_params)
-
-    if @comic.save
-      flash[:notice] = "新しいマンガの保存が完了しました。"
-      redirect_to comic_path(@comic)
-    else
-      render :new
-    end
-  end
-
-  # PATCH/PUT /comics/1
-  def update
-    @comic = Comic.find(params[:id])
-    
-    if @comic.update(comic_params)
-      flash[:notice] = "マンガ情報の変更を保存しました。"
-      redirect_to comic_path(@comic)
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /comics/1
-  def destroy
-    @comic = Comic.find(params[:id])
-    @comic.destroy
-    flash[:notice] = "マンガを削除しました。"
-    redirect_to comics_path
-  end
-
   private
     # Only allow a list of trusted parameters through.
     def comic_params
