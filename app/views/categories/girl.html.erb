@@ -2,7 +2,7 @@
   <%= form_with(model: @comic) do |form| %>
     <p id="notice"><%= notice %></p>
 
-    <h1>オススメ</h1>
+    <h1>少女・女性</h1>
 
     <div class="btn-container">
       <%= link_to 'ホーム', comics_path, class: 'btn btn-home' %>
@@ -21,11 +21,17 @@
       </thead>
 
       <tbody>
-        <% @comics.each do |comic| %>
+        <% if @comics.present? %>
+          <% @comics.each do |comic| %>
+            <tr>
+              <td><%= comic.title %></td>
+              <td><%= comic.content %></td>
+              <td><%= link_to '詳細', comic_path(comic) %></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= comic.title %></td>
-            <td><%= comic.content %></td>
-            <td><%= link_to '詳細', comic_path(comic) %></td>
+            <td colspan="3">表示できるデータがありません。</td>
           </tr>
         <% end %>
       </tbody>

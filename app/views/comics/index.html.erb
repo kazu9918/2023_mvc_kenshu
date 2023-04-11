@@ -21,11 +21,17 @@
       </thead>
 
       <tbody>
-        <% @comics.each do |comic| %>
+        <% if @comics.present? %>
+          <% @comics.each do |comic| %>
+            <tr>
+              <td><%= comic.title %></td>
+              <td><%= comic.content %></td>
+              <td><%= link_to '詳細', comic %></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= comic.title %></td>
-            <td><%= comic.content %></td>
-            <td><%= link_to '詳細', comic %></td>
+            <td colspan="3">表示できるデータがありません。</td>
           </tr>
         <% end %>
       </tbody>
