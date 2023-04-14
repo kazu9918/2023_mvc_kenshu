@@ -1,24 +1,22 @@
-# README
+# 環境構築
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- 　以下のコマンドを実行してください。
 
-Things you may want to cover:
+```
+docker compose up
+```
+- http://localhost:3000/ にアクセスしてください。
+- 上記に正常にアクセス出来たらhttp://localhost:3000/comics にアクセスしてください。
 
-* Ruby version
+```
+maysql関係のエラーの場合下記のコマンドを実行してください
 
-* System dependencies
+docker exec -it [コンテナ名]　bash
+rails db:create
+```
+```
+Webpacker::Manifest::MissingEntryErrorが発生した場合
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+docker exec -it [コンテナ名]　bash
+rails webpacker:install
+```
